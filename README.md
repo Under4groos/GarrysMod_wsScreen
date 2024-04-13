@@ -27,4 +27,4 @@ else
 }
 ``` 
 # Build project Avalonia + .NET 7 
-
+https://youtube.com/shorts/TLYNM8211yM?feature=share
