@@ -26,5 +26,5 @@ else
     holoPos(2, entity():toWorld(vec(X,Y,0) ) )
 }
 ``` 
-# Build project 
-#Avalonia + .NET7 
+# Build project Avalonia + .NET 7 
+
