@@ -1,6 +1,6 @@
 # wsScreen
 #E2 Code 
------------
+```
 @name FileRead
 @persist File_:string 
 @outputs Table:array X:number Y:number
@@ -24,7 +24,6 @@ else
     
     holoPos(2, entity():toWorld(vec(X,Y,0) ) )
 }
------------
- 
+``` 
 
 
