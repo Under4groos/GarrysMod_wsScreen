@@ -1,4 +1,5 @@
 # wsScreen
+Проект предназначен для демоснтарации, что такое вообще можно написать и использовать. 
 #E2 Code 
 ```
 @name FileRead
@@ -25,5 +26,5 @@ else
     holoPos(2, entity():toWorld(vec(X,Y,0) ) )
 }
 ``` 
-
-
+#Build project 
+Avalonia + .NET7 
