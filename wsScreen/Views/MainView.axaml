@@ -8,11 +8,36 @@
              x:DataType="vm:MainViewModel"
 			 Background="#1e1e1e"
 			 >
-  <Design.DataContext>
-    
-    <vm:MainViewModel />
-  </Design.DataContext>
-	<Grid Name="grid" Background="Transparent">
-		
-	</Grid>
+	<UserControl.Styles>
+		<Style Selector="ToggleButton">
+			<Setter Property="Margin" Value="5"/>
+			<Setter Property="Padding" Value="30,5,30,5"/>
+			<Setter Property="FontSize" Value="25"/>
+		 <Setter Property="Foreground" Value="White"/>
+		</Style>
+	</UserControl.Styles>
+	<Design.DataContext>
+
+		<vm:MainViewModel />
+	</Design.DataContext>
+	<TabControl Margin="5">
+		<TabItem Header="Screen" Foreground="White">
+			<Grid Name="grid" Background="Transparent">
+
+			</Grid>
+		</TabItem>
+		<TabItem Header="Buttons" Foreground="White">
+			<ScrollViewer>
+				<WrapPanel Name="WrapPanelList">
+					<ToggleButton Content="Fire"/>
+					<ToggleButton Content="1"/>
+					<ToggleButton Content="2"/>
+					<ToggleButton Content="3"/>
+
+				</WrapPanel>
+			</ScrollViewer>
+		</TabItem>
+
+	</TabControl>
+
 </UserControl>
