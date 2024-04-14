@@ -68,4 +68,10 @@ else
 ```
 
 # Build project Avalonia + .NET 7 
+```
+1. Клонируем репозиторий
+2. Подключаем Andriod по USB к ПК 
+3. Выбираем wsScreen.Android и выполняем сборку.
+4. Запускаем сервер
+```
 https://youtube.com/shorts/TLYNM8211yM?feature=share
