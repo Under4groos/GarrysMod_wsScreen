@@ -1,4 +1,4 @@
-﻿namespace Server.Model
+﻿namespace lib_json
 {
     public class JsonObj_Data
     {

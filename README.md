@@ -50,7 +50,7 @@ if(first()){
     }  
      
     function parser_button_status_id(I:number){
-        return Buttons[I, table ][2,number]
+        return Buttons[I, table ][2,number] ?:0
     }
 }
 else
@@ -60,20 +60,21 @@ else
     PositionCenter = parser_vec2(Table[2,string])
     Position = parser_vec2(Table[3,string])
     parser_buttons(Table[4,string])
-    Lamp = parser_button_status_id(1)
-#[    for(I=11,10 + Buttons:count() - 1){
+    
+    for(I=11,10 + Buttons:count() -1 ){
         
         holoCreate(I)
         holoPos(I,entity():toWorld(vec(0,I * 15 - 50,20)))
         
+        Lamp = parser_button_status_id(I-10)
+       
         
-       Lamp = Buttons[I-10, table ][2,number]
+        holoColor(I,vec(255,255,255) * Lamp)
         
-        holoColor(I,vec(255,255,255) * Status)
-        
-    }]#
+    }
     holoPos(2, entity():toWorld(vec(PositionCenter:x() , PositionCenter:y()  ,0) ) )
 }
+
 ```
 
 # Build project Avalonia + .NET 7 

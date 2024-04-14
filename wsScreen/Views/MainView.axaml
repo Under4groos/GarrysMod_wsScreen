@@ -11,33 +11,59 @@
 	<UserControl.Styles>
 		<Style Selector="ToggleButton">
 			<Setter Property="Margin" Value="5"/>
-			<Setter Property="Padding" Value="30,5,30,5"/>
-			<Setter Property="FontSize" Value="25"/>
-		 <Setter Property="Foreground" Value="White"/>
+			<Setter Property="Padding" Value="5"/>
+
+			<Setter Property="Foreground" Value="White"/>
+		</Style>
+		<Style Selector="Button">
+			<Setter Property="Margin" Value="5"/>
+			<Setter Property="Padding" Value="5"/>
+
+			<Setter Property="Foreground" Value="White"/>
+		</Style>
+		<Style Selector="TextBlock">
+			<Setter Property="Margin" Value="5"/>
+			<Setter Property="Padding" Value="5"/>
+
+			<Setter Property="Foreground" Value="White"/>
 		</Style>
 	</UserControl.Styles>
+	<UserControl.Resources>
+		<SolidColorBrush x:Key='brush' Opacity="0.01" Color="#ffff"></SolidColorBrush>
+	</UserControl.Resources>
 	<Design.DataContext>
 
 		<vm:MainViewModel />
 	</Design.DataContext>
 	<TabControl Margin="5">
 		<TabItem Header="Screen" Foreground="White">
-			<Grid Name="grid" Background="Transparent">
+			<Grid >
+				<TextBlock Name="position" Text="Pos: 0,0"/>
+				
+				<TextBlock Name="localposition" Text="0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+				
+				<Border HorizontalAlignment="Center" VerticalAlignment="Stretch" Background="#0078d4" Width="1"/>
+				<Border HorizontalAlignment="Stretch" VerticalAlignment="Center" Background="#0078d4" Height="1"  />
+				<Grid Name="grid" Background="{StaticResource brush}">
 
+				</Grid>
 			</Grid>
 		</TabItem>
+
 		<TabItem Header="Buttons" Foreground="White">
 			<ScrollViewer>
 				<WrapPanel Name="WrapPanelList">
-					<ToggleButton Content="Fire"/>
-					<ToggleButton Content="1"/>
-					<ToggleButton Content="2"/>
-					<ToggleButton Content="3"/>
+
 
 				</WrapPanel>
 			</ScrollViewer>
 		</TabItem>
+		<TabItem Header="Setting" Foreground="White">
+			<WrapPanel>
+				<Button Name="but_refresh" Content="Get Buttons"/>
 
+			</WrapPanel>
+		</TabItem>
 	</TabControl>
 
 </UserControl>

@@ -1,12 +1,13 @@
+using lib_json;
 using Newtonsoft.Json;
-using Server.Model;
 using sv_Control;
 using System.Net;
 using System.Text;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+List<JsonButtons> buttons = new List<JsonButtons>();
+string FileJsonButtons = Path.GetFullPath("buttons.json");
 
-string data_cursor = "sad";
 
 WebApplication app = builder.Build();
 
@@ -14,6 +15,37 @@ ThreadUdpClient threadUdpClient = new ThreadUdpClient();
 StringBuilder stringBuilder = new StringBuilder();
 threadUdpClient.EvRequestData += (IPAddress adress, string data) =>
 {
+    if (data == "getbuttons")
+    {
+        if (!File.Exists(FileJsonButtons))
+        {
+            buttons = new List<JsonButtons>()
+            {
+                new JsonButtons()
+                {
+                    Name = "Test 1",
+                    Command = ""
+
+
+                },
+                new JsonButtons()
+                {
+                    Name = "Test 2",
+                    Command = ""
+                }
+            };
+
+            File.WriteAllText(FileJsonButtons, JsonConvert.SerializeObject(buttons, Formatting.Indented));
+        }
+        else
+        {
+            buttons = JsonConvert.DeserializeObject<List<JsonButtons>>(File.ReadAllText(FileJsonButtons));
+        }
+
+
+        threadUdpClient.Send(JsonConvert.SerializeObject(buttons));
+        return;
+    }
 
     JsonObj_Data json = JsonConvert.DeserializeObject<JsonObj_Data>(data);
 
@@ -44,11 +76,11 @@ threadUdpClient.EvRequestData += (IPAddress adress, string data) =>
 threadUdpClient.ToListen();
 app.Map("/", () =>
 {
-    return data_cursor;
+
 });
 
 app.Map("/GetCursors", () =>
 {
-    return data_cursor;
+
 });
 app.Run();
