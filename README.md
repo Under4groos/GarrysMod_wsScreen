@@ -1,5 +1,11 @@
 # wsScreen
 Проект предназначен для демоснтарации, что такое вообще можно написать и использовать. 
+
+# Читает файл из
+```
+E:\Steam\steamapps\common\GarrysMod\garrysmod\data\e2files
+```
+
 # FileRead_data - Чтение файла 
 ```
 @name FileRead_data
